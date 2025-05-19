@@ -47,7 +47,7 @@
     1. Book - Simulation of a book (Real world enitiy).
     2. Human - Simlation of a Human (Real world entity).
     3. PatronPass - Pass given to the Human for the library.
-    4. QueryBook - Searching algorithms to use to search a book ( a strategy can be used to search )
+    4. Finder - Searching algorithms to use to search a book ( a strategy can be used to search )  {FindByISBN, FindBuTitle}
     5. Library - Simulation of a Library (Real world entity).
     6. PaymentProcessor - checkout management wrt book borrowing time. (per day cost). + supported all payment options.
 
@@ -58,6 +58,7 @@
         - author
         - publishedYear
         - ISBN
+        - isAvailable
     
     2. Human :
         - name
@@ -81,7 +82,20 @@
         + addBook(Book book)
         + removeBook(Book book)
         + updateBook(Book book, String field, String value)
-        + findBook(String title)
+        + allocateBook
+        + deAllocateBook
 
     6. PaymentProcessor : 
-        - 
+        - pay(long amount)
+        
+    7. CCPayment : (can add more strategies to pay) 
+        - ccNumber
+        + pay(long amount)
+
+    8. Finder : 
+        - search(Library lib, String key)
+    
+    9. FindByTitle
+    10. FindByISBN
+
+    
